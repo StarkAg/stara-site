@@ -17,6 +17,7 @@ import { heroIntro, heroParallax } from '@/lib/animations'
  * @param {string|Array} mediaSrc - Path to media asset or array of media objects {type:'video'|'image', src:'', poster:''}
  * @param {Array<{text: string, href: string, variant?: string}>} ctas - Array of call-to-action buttons
  * @param {string} kicker - Small text below subtitle
+ * @param {string[]} rotatingWords - Optional list of words to rotate inside the title
  */
 export default function Hero({ 
   title = "Welcome",
@@ -24,11 +25,13 @@ export default function Hero({
   mediaType = "image",
   mediaSrc = "",
   ctas = [],
-  kicker = ""
+  kicker = "",
+  rotatingWords = [],
 }) {
   const [videoReady, setVideoReady] = useState(false)
   const [autoplayBlocked, setAutoplayBlocked] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
+  const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const heroRef = useRef(null)
   const mediaRef = useRef(null)
   const videoRef = useRef(null)
@@ -60,6 +63,15 @@ export default function Hero({
       return () => clearTimeout(timeout)
     }
   }, [videoReady, mediaType, subtitle, ctas.length])
+
+  // Rotate hero words on the second line (simple, slow crossfade)
+  useEffect(() => {
+    if (!rotatingWords || rotatingWords.length <= 1) return
+    const intervalId = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length)
+    }, 3200) // calm cadence
+    return () => clearInterval(intervalId)
+  }, [rotatingWords])
 
   // Function to handle slide transitions (for carousel/slider functionality)
   const handleSlideTransition = (direction = 'next') => {
@@ -186,6 +198,26 @@ export default function Hero({
             aria-label={title}
           >
             {title}
+            {rotatingWords && rotatingWords.length > 0 && (
+              <>
+                {/* Force the additional word onto the next line for a clean stacked title */}
+                <br />
+                <span className="inline-block text-white/90 align-baseline relative h-[1.1em] whitespace-nowrap">
+                  {/* Crossfade full words; one is always visible */}
+                  {rotatingWords.map((word, idx) => (
+                    <span
+                      key={`${word}-${idx}`}
+                      className="absolute left-1/2 -translate-x-1/2 top-0 transition-opacity duration-[700ms] ease-out"
+                      style={{
+                        opacity: idx === currentWordIndex ? 1 : 0,
+                      }}
+                    >
+                      {word}
+                    </span>
+                  ))}
+                </span>
+              </>
+            )}
           </h1>
         )}
 

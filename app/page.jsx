@@ -6,8 +6,15 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero
-        title="Doors that elevate architecture"
+        title="Doors that elevate"
         subtitle="Turning ordinary spaces into moments worth remembering."
+        rotatingWords={[
+          'space',
+          'design',
+          'aesthetics',
+          'texture',
+          'environment',
+        ]}
         mediaType="carousel"
         mediaSrc={[
           { type: 'image', src: '/assets/hero-1.jpg', poster: '/assets/hero-1.jpg' },
