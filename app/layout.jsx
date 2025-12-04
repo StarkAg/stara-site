@@ -11,7 +11,7 @@ export const metadata = {
   creator: 'Stara',
   publisher: 'Stara',
   
-  // OpenGraph metadata
+  // OpenGraph metadata (used by WhatsApp, Instagram, etc.)
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -21,20 +21,20 @@ export const metadata = {
     description: 'Doors that craft a moment. Explore modern, heritage and weather-resistant collections. Dealer locator, custom orders & technical specs.',
     images: [
       {
-        url: '/assets/og-stara.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Stara — Doors by Stara, Craft',
+        url: '/assets/Stara Logo Transparent.png', // Logo used for social previews
+        width: 800,
+        height: 800,
+        alt: 'Stara logo',
       },
     ],
   },
 
-  // Twitter Card metadata
+  // Twitter / X Card metadata
   twitter: {
     card: 'summary_large_image',
     title: 'Stara — Doors by Stara, Craft',
-    description: 'Doors that craft a moment. Explore modern, heritage and weather-resistant collections. Dealer locator, custom orders & technical specs.',
-    images: ['/assets/images/og-stara.jpg'],
+    description: 'Doors that elevate architecture. Premium doors by Stara, Craft.',
+    images: ['/assets/Stara Logo Transparent.png'],
     creator: '@stara', // TODO: Replace with actual Twitter handle
   },
 
@@ -70,8 +70,8 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Stara, Craft',
-  url: 'https://your-stara-site.com', // TODO: Replace with actual domain
-  logo: 'https://your-stara-site.com/assets/logo-stara.png', // TODO: Replace with actual logo URL
+  url: 'https://stara-site-k5ifr7rlr-starkags-projects.vercel.app',
+  logo: 'https://stara-site-k5ifr7rlr-starkags-projects.vercel.app/assets/Stara%20Logo%20Transparent.png',
   sameAs: [],
   contactPoint: [{
     '@type': 'ContactPoint',
@@ -89,6 +89,8 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        {/* Favicon / app icon */}
+        <link rel="icon" href="/assets/Stara Logo Transparent.png" type="image/png" />
         
         {/* Preload critical hero assets for faster LCP */}
         <link rel="preload" as="image" href="/assets/hero-1.jpg" />
