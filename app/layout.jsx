@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import SmoothScroll from '@/components/SmoothScroll'
 import CursorFollower from '@/components/CursorFollower'
+import Header from '@/components/Header'
 
 export const metadata = {
   title: 'Stara — Premium Doors by Stara, Craft',
@@ -103,7 +104,10 @@ export default function RootLayout({ children }) {
               __html: JSON.stringify(organizationSchema),
             }}
           />
-          {children}
+          <Header />
+          <main>
+            {children}
+          </main>
         </SmoothScroll>
       </body>
     </html>

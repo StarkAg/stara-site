@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero
-        title="Stara — Doors that craft a moment"
-        subtitle="Hand-finished doors and fittings by Stara, Craft. Built for longevity. Designed for presence."
+        title="Doors that elevate architecture"
+        subtitle="Turning ordinary spaces into moments worth remembering."
         mediaType="carousel"
         mediaSrc={[
           { type: 'image', src: '/assets/hero-1.jpg', poster: '/assets/hero-1.jpg' },

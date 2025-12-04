@@ -91,19 +91,8 @@ export default function ValueProps() {
               ref={(el) => {
                 if (el) cardsRef.current[index] = el
               }}
-              className="text-center relative"
+              className="text-center"
             >
-              {/* Decorative texture behind each card */}
-              <div 
-                className="absolute inset-0 opacity-[0.02] -z-10"
-                style={{
-                  backgroundImage: index % 2 === 0 
-                    ? 'url(/assets/texture-wood-1.jpg)' 
-                    : 'url(/assets/texture-stone-1.jpg)',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-              />
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[var(--fg)]">
                 {prop.title}
               </h3>

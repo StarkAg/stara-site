@@ -113,124 +113,64 @@ export default function Hero({
             {mediaSrc.map((media, index) => (
               <SwiperSlide key={index} className="absolute inset-0">
                 {media.type === 'video' ? (
-                  <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-black">
-                    <video
-                      className={`w-full h-full object-contain sm:object-cover min-w-full min-h-full transition-opacity duration-1000 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
-                      style={{
-                        objectPosition: 'center center',
-                      }}
-                      muted
-                      loop
-                      playsInline
-                      autoPlay
-                      preload="metadata"
-                      poster={media.poster || '/assets/hero-video-frame.jpg'}
-                      onCanPlayThrough={() => {
-                        setVideoReady(true)
-                        setImageLoaded(true)
-                      }}
-                      onError={() => setAutoplayBlocked(true)}
-                    >
-                      <source src={media.src || '/assets/vid.mp4'} type="video/mp4" />
-                    </video>
-                    {/* Fallback to poster if video fails */}
-                    {autoplayBlocked && (
-                      <Image
-                        src={media.poster || '/assets/hero-video-frame.jpg'}
-                        alt=""
-                        fill
-                        className="object-contain sm:object-cover bw-image"
-                        unoptimized
-                        onLoad={() => setImageLoaded(true)}
-                      />
-                    )}
-                  </div>
+                  <video
+                    className="absolute inset-0 w-full h-full object-cover"
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    preload="metadata"
+                    poster={media.poster || '/assets/hero-video-frame.jpg'}
+                    onCanPlayThrough={() => setVideoReady(true)}
+                    onError={() => setAutoplayBlocked(true)}
+                  >
+                    <source src={media.src || '/assets/vid.mp4'} type="video/mp4" />
+                  </video>
                 ) : (
-                  <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-black">
-                    <Image
-                      src={media.src || '/assets/hero-1.jpg'}
-                      alt=""
-                      fill
-                      className={`object-contain sm:object-cover min-w-full min-h-full bw-image transition-opacity duration-1000 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                      priority={index === 0}
-                      unoptimized
-                      onLoad={() => setImageLoaded(true)}
-                      style={{
-                        objectPosition: 'center center',
-                      }}
-                    />
-                  </div>
+                  <Image
+                    src={media.src || '/assets/hero-1.jpg'}
+                    alt=""
+                    fill
+                    className="object-cover bw-image"
+                    priority={index === 0}
+                    unoptimized
+                  />
                 )}
               </SwiperSlide>
             ))}
           </Swiper>
         ) : mediaType === 'video' ? (
-          <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-black">
-            <video
-              ref={videoRef}
-              className={`w-full h-full object-contain sm:object-cover min-w-full min-h-full transition-opacity duration-1000 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
-              style={{
-                objectPosition: 'center center',
-              }}
-              muted
-              loop
-              playsInline
-              autoPlay
-              preload="metadata"
-              poster="/assets/hero-video-frame.jpg"
-              onCanPlayThrough={() => {
-                setVideoReady(true)
-                setImageLoaded(true)
-              }}
-              onError={(e) => {
-                console.warn('Video autoplay may be blocked')
-                setAutoplayBlocked(true)
-              }}
-            >
-              <source src={mediaSrc || '/assets/vid.mp4'} type="video/mp4" />
-            </video>
-            {/* Show poster as fallback if autoplay is blocked */}
-            {autoplayBlocked && (
-              <Image
-                src="/assets/hero-video-frame.jpg"
-                alt=""
-                fill
-                className="object-contain sm:object-cover bw-image transition-opacity duration-1000"
-                style={{
-                  objectPosition: 'center center',
-                }}
-                unoptimized
-                onLoad={() => setImageLoaded(true)}
-              />
-            )}
-          </div>
+          <video
+            ref={videoRef}
+            className="absolute inset-0 w-full h-full object-cover"
+            muted
+            loop
+            playsInline
+            autoPlay
+            preload="metadata"
+            poster="/assets/hero-video-frame.jpg"
+            onCanPlayThrough={() => setVideoReady(true)}
+            onError={(e) => {
+              console.warn('Video autoplay may be blocked')
+              setAutoplayBlocked(true)
+            }}
+          >
+            <source src={mediaSrc || '/assets/vid.mp4'} type="video/mp4" />
+          </video>
         ) : (
-          <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-black">
-            <Image
-              src={mediaSrc || '/assets/hero-1.jpg'}
-              alt=""
-              fill
-              className={`object-contain sm:object-cover min-w-full min-h-full bw-image transition-opacity duration-1000 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-              priority
-              unoptimized
-              onLoad={() => setImageLoaded(true)}
-              style={{
-                objectPosition: 'center center',
-              }}
-            />
-          </div>
+          <Image
+            src={mediaSrc || '/assets/hero-1.jpg'}
+            alt=""
+            fill
+            className="object-cover bw-image"
+            priority
+            unoptimized
+          />
         )}
       </div>
 
-      {/* Creative gradient overlay - stronger at edges, lighter in center */}
-      <div 
-        className="absolute inset-0 z-[1]"
-        style={{
-          background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%)',
-        }}
-      />
-      {/* Additional subtle overlay for text readability */}
-      <div className="absolute inset-0 bg-black/30 z-[1]" />
+      {/* Single subtle overlay just to help text readability */}
+      <div className="absolute inset-0 bg-black/35 z-[1]" />
 
       {/* Content */}
       <div 
