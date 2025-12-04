@@ -90,7 +90,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         {/* Favicon / app icon */}
-        <link rel="icon" href="/assets/Stara Logo Transparent.png" type="image/png" />
+        <link rel="icon" href="/assets/Favicon.png" type="image/png" />
         
         {/* Preload critical hero assets for faster LCP */}
         <link rel="preload" as="image" href="/assets/hero-1.jpg" />
