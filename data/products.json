@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "slug": "modern-series",
+    "title": "Modern Series",
+    "subtitle": "Slim profile, flush finishes",
+    "image": "/assets/card-1.jpg",
+    "specs": [
+      "40/45/50 mm thickness",
+      "HDF core / engineered veneer",
+      "Finishes: Matte, Satin, Textured"
+    ],
+    "inStock": true,
+    "href": "/collections/modern-series"
+  },
+  {
+    "id": 2,
+    "slug": "heritage-series",
+    "title": "Heritage Series",
+    "subtitle": "Classic panel doors",
+    "image": "/assets/card-2.jpg",
+    "specs": [
+      "Solid core options",
+      "Decorative moulding available",
+      "Hand-rubbed finishes"
+    ],
+    "inStock": true,
+    "href": "/collections/heritage-series"
+  },
+  {
+    "id": 3,
+    "slug": "weatherguard",
+    "title": "WeatherGuard",
+    "subtitle": "Exterior doors",
+    "image": "/assets/card-1.jpg",
+    "specs": [
+      "Marine plywood core + sealed edges",
+      "High UV, moisture resistant finish",
+      "10-year door shell warranty"
+    ],
+    "inStock": true,
+    "href": "/collections/weatherguard"
+  },
+  {
+    "id": 4,
+    "slug": "acoustic-series",
+    "title": "Acoustic Series",
+    "subtitle": "Sound-reduced doors",
+    "image": "/assets/card-2.jpg",
+    "specs": [
+      "STC ratings 32–48 (depending on option)",
+      "Special seals & thresholds",
+      "Ideal for bedrooms, studios, offices"
+    ],
+    "inStock": true,
+    "href": "/collections/acoustic-series"
+  },
+  {
+    "id": 5,
+    "slug": "slimline-flush",
+    "title": "Slimline Flush",
+    "subtitle": "Sleek minimal doors",
+    "image": "/assets/card-1.jpg",
+    "specs": [
+      "Concealed hinges option",
+      "Magnetic catch, soft close available"
+    ],
+    "inStock": true,
+    "href": "/collections/slimline-flush"
+  },
+  {
+    "id": 6,
+    "slug": "custom-atelier",
+    "title": "Custom Atelier",
+    "subtitle": "Made to order",
+    "image": "/assets/card-2.jpg",
+    "specs": [
+      "Any size, any finish",
+      "In-house design consultation",
+      "Lead times: 4–8 weeks (sample)"
+    ],
+    "inStock": true,
+    "href": "/custom"
+  }
+]
+
